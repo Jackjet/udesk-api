@@ -1,0 +1,29 @@
+{
+  "apps" : [
+    {
+      "name"      : "UDesk Push API",
+      "script"    : "./bin/www",
+      "watch" : false,
+      "env": {
+        "PORT": 10250
+      },
+      "env_production" : {
+        "NODE_ENV": "production"
+      },
+      "env_test" : {
+        "NODE_ENV": "test"
+      }
+    }
+  ],
+
+  "deploy" : {
+    "production" : {
+      "user" : "root",
+      "host" : "121.43.181.25",
+      "ref"  : "origin/master",
+      "repo" : "git@github.com:ehe888/udesk-api.git",
+      "path" : "/srv/udesk-api/production",
+      "post-deploy" : "npm install && pm2 startOrRestart ecosystem.json --env production"
+    }
+  }
+}
