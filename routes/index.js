@@ -7,7 +7,9 @@ router.use('/', function(req, res, next) {
 
   console.log(req.query);
   console.log(req.body);
-
+  console.log(req.method);
+  console.log(req.get('content-type'));
+  
   return res.json({
     success: true
   });
