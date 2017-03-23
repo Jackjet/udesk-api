@@ -7,7 +7,7 @@ router.use('/', function(req, res, next) {
 
   console.log(req.query);
   console.log(req.body);
-  console.log(req.originalUrl);
+  console.log(req.body['message[changes][custom_fields][TextField_10325]']);
   console.log(req.get('content-type'));
 
   return res.json({
